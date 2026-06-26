@@ -31,7 +31,6 @@
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #F9F8F4; }
         .font-eng { font-family: 'Montserrat', sans-serif; }
         input:focus { outline: none; border-color: #0A7476; box-shadow: 0 0 0 3px rgba(10, 116, 118, 0.15); }
-        /* 체크박스 커스텀 스포티 스타일 */
         .sporty-check:checked {
             background-color: #0A7476;
             border-color: #0A7476;
@@ -157,7 +156,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
-        // 상태 초기화 및 로컬스토리지 연동
         let challengeState = JSON.parse(localStorage.getItem('verve_strong_days')) || Array(30).fill(false);
         
         const weightInput = document.getElementById('weightInput');
@@ -168,7 +166,6 @@
         const cardInstaTag = document.getElementById('cardInstaTag');
         const cardProgress = document.getElementById('cardProgress');
 
-        // 단백질 계산 로직 연동
         weightInput.addEventListener('input', (e) => {
             const weight = parseFloat(e.target.value) || 0;
             if(weight > 0) {
@@ -180,14 +177,12 @@
             }
         });
 
-        // 인스타 태그 실시간 연동
         instaIdInput.addEventListener('input', (e) => {
             let val = e.target.value.trim();
             if(val && !val.startsWith('@')) val = '@' + val;
             cardInstaTag.innerText = val || '@your_id';
         });
 
-        // 30일 그리드 보드 동적 빌드
         function renderGrid() {
             gridContainer.innerHTML = '';
             let checkedCount = 0;
@@ -198,7 +193,6 @@
                 if(isChecked) checkedCount++;
 
                 const dayCard = document.createElement('div');
-                // 스포티하고 직관적인 셀렉트 박스 디자인 설정
                 dayCard.className = `border rounded-xl p-2.5 flex flex-col items-center justify-between cursor-pointer select-none transition-all ${
                     isChecked 
                     ? 'bg-sporty-primary/10 border-sporty-primary text-sporty-primary font-bold' 
@@ -213,12 +207,10 @@
                 gridContainer.appendChild(dayCard);
             }
 
-            // 게이지 트래킹 업데이트
             const progressPercent = Math.round((checkedCount / 30) * 100);
             document.getElementById('progressBar').style.width = `${progressPercent}%`;
             document.getElementById('progressText').innerText = `${progressPercent}% (${checkedCount}/30)`;
             
-            // 카드 내 데이 지표 갱신
             cardProgress.innerText = `DAY ${String(checkedCount).padStart(2, '0')}`;
         }
 
@@ -236,11 +228,8 @@
             }
         }
 
-        // 이미지 파일 빌드 및 내보내기 다운로드 세션
         function downloadCardAlert() {
             const target = document.getElementById('storyCard');
-            
-            // 해상도 보정 및 스케일 업 배율 세팅
             html2canvas(target, {
                 scale: 3, 
                 backgroundColor: null,
@@ -253,7 +242,6 @@
             });
         }
 
-        // 초기 구동 실행
         renderGrid();
     </script>
 </body>
