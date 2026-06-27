@@ -1,3 +1,4 @@
+:VERVE Forever Strong 30일 대시보드 (피날레 카드 추가):index.html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,13 +26,15 @@
             }
         }
     </script>
-    <!-- 구글 폰트 -->
+    <!-- 구글 폰트 (고급스러운 Serif 서체인 Playfair Display 추가) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #F9F8F4; }
         .font-eng { font-family: 'Montserrat', sans-serif; }
+        .font-serif-premium { font-family: 'Playfair Display', serif; }
         input:focus { outline: none; border-color: #0A7476; box-shadow: 0 0 0 3px rgba(10, 116, 118, 0.15); }
         .sporty-check:checked {
             background-color: #FF5A36;
@@ -163,11 +166,11 @@
             </div>
         </section>
 
-        <!-- STEP 3: 한글 버전 밝고 세련된 스토리 카드 생성기 -->
+        <!-- STEP 3: 한글 버전 밝고 세련된 스토리 카드 생성기 (데일리 무드) -->
         <section class="bg-sporty-card rounded-2xl border border-sporty-border p-6 shadow-sm">
             <div class="flex items-center space-x-2 mb-4">
                 <span class="w-2 h-5 bg-sporty-accent rounded-full"></span>
-                <h2 class="text-base font-bold tracking-tight">03. 화사한 오운완 인증 카드 생성</h2>
+                <h2 class="text-base font-bold tracking-tight">03. 화사한 데일리 오운완 카드</h2>
             </div>
 
             <div class="space-y-4">
@@ -218,9 +221,95 @@
                     </div>
                 </div>
 
-                <button onclick="downloadCardAlert()" class="w-full bg-sporty-accent text-white font-bold py-4 px-4 rounded-xl shadow-md shadow-sporty-accent/10 hover:bg-sporty-accent/90 transition-all text-sm flex items-center justify-center space-x-2">
-                    <span>스토리 를 공유하세요 </span>
+                <button onclick="downloadCardAlert('storyCard', 'verve_daily_strong_card.png')" class="w-full bg-sporty-accent text-white font-bold py-4 px-4 rounded-xl shadow-md shadow-sporty-accent/10 hover:bg-sporty-accent/90 transition-all text-sm flex items-center justify-center space-x-2">
+                    <span>데일리 스토리 공유하기</span>
                 </button>
+            </div>
+        </section>
+
+        <!-- STEP 4: [NEW] 30일 그랜드 피날레 마스터 카드 생성기 (잠금 해제 요소 탑재) -->
+        <section class="bg-sporty-card rounded-2xl border border-sporty-border p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-2">
+                    <span class="w-2.5 h-5 bg-[#D4AF37] rounded-full"></span>
+                    <h2 class="text-base font-bold tracking-tight text-sporty-text">04. 30일 완주 그랜드 피날레 카드</h2>
+                </div>
+                <!-- 해금 여부 뱃지 -->
+                <span id="unlockBadge" class="bg-slate-100 text-slate-500 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
+                    <i class="fa-solid fa-lock text-[9px]"></i> Locked
+                </span>
+            </div>
+
+            <div class="space-y-4">
+                <!-- 럭셔리 골드 & 피날레 30일 완성 가상 카드 캔버스 -->
+                <div class="flex justify-center py-2 relative">
+                    <div id="premiumCard" class="w-64 h-[420px] rounded-3xl p-6 flex flex-col justify-between relative shadow-2xl overflow-hidden border border-[#D4AF37]/30 text-slate-100 bg-gradient-to-b from-[#0F141C] to-[#06080C] transition-all">
+                        
+                        <!-- 럭셔리 백그라운드 구형 발광 레이어 -->
+                        <div class="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-gradient-to-br from-[#D4AF37]/25 to-transparent blur-2xl"></div>
+                        <div class="absolute -left-20 -bottom-20 w-48 h-48 rounded-full bg-gradient-to-tr from-teal-500/10 to-transparent blur-2xl"></div>
+                        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05),transparent_70%)]"></div>
+
+                        <!-- 카드 상단 헤더 -->
+                        <div class="z-10 text-center">
+                            <div class="font-serif-premium italic text-[11px] tracking-widest text-[#D4AF37] uppercase mb-1">Honor of Verve PT</div>
+                            <h3 class="font-serif-premium font-bold text-[17px] tracking-widest text-slate-100 uppercase">Grand Finale</h3>
+                            <div class="flex justify-center items-center gap-1.5 mt-2">
+                                <span class="w-1.5 h-1.5 bg-[#D4AF37] rotate-45"></span>
+                                <span class="w-10 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></span>
+                                <span class="w-1.5 h-1.5 bg-[#D4AF37] rotate-45"></span>
+                            </div>
+                        </div>
+
+                        <!-- 카드 중앙: 영광스러운 골드 30일 서클 각인 디자인 -->
+                        <div class="z-10 flex flex-col items-center justify-center my-auto space-y-3.5">
+                            <div class="relative flex items-center justify-center w-28 h-28 rounded-full border-2 border-dashed border-[#D4AF37]/40 p-2">
+                                <div class="absolute inset-1 rounded-full border border-[#D4AF37]/20"></div>
+                                <div class="w-22 h-22 rounded-full bg-gradient-to-b from-[#181E29] to-[#0A0D14] flex flex-col items-center justify-center border border-[#D4AF37]/60 shadow-lg shadow-black/60">
+                                    <span class="font-serif-premium font-black text-4xl text-gradient bg-gradient-to-b from-white via-[#F3F0DF] to-[#D4AF37] bg-clip-text text-transparent leading-none">30</span>
+                                    <span class="font-eng font-black text-[9px] tracking-widest text-[#D4AF37] mt-1">DAYS COMPLETE</span>
+                                </div>
+                                <!-- 미니 데코 별 -->
+                                <i class="fa-solid fa-star text-[7px] text-[#D4AF37] absolute top-2"></i>
+                            </div>
+
+                            <div class="text-center">
+                                <div class="text-[9px] font-bold text-slate-400 tracking-wider mb-0.5">FOREVER STRONG 챌린지</div>
+                                <p class="text-[12px] font-bold text-[#F3F0DF] leading-tight">마침내 평생 지치지 않는 몸을 완성하다</p>
+                            </div>
+                        </div>
+
+                        <!-- 카드 하단 정보 반영 부분 -->
+                        <div class="z-10 text-center border-t border-white/10 pt-3">
+                            <div id="premiumInstaTag" class="font-eng font-black text-sm text-[#D4AF37] tracking-wider">@verve_dk</div>
+                            <div class="text-[8px] font-semibold text-slate-500 uppercase tracking-widest mt-0.5 font-eng">Verve Master Certificate</div>
+                        </div>
+                    </div>
+
+                    <!-- 동적 자물쇠 오버레이 (미 달성 시 활성화) -->
+                    <div id="lockOverlay" class="absolute inset-0 bg-black/85 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center p-6 text-center transition-all duration-500 z-20">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-b from-[#1E2530] to-[#0E1218] border border-[#D4AF37]/40 flex items-center justify-center shadow-lg text-[#D4AF37] mb-3 animate-pulse">
+                            <i class="fa-solid fa-lock text-base"></i>
+                        </div>
+                        <h4 class="text-slate-200 text-sm font-black tracking-tight mb-1">30일 마스터 완료 카드 잠김</h4>
+                        <p class="text-slate-400 text-[11px] leading-relaxed mb-4">주 4일 운동(16회) 및 매일 단백질(30일)을<br>모두 채우면 영광스러운 골드 카드가 해금됩니다.</p>
+                        <div class="w-full max-w-[200px] bg-slate-800/80 rounded-full h-2 mb-4 overflow-hidden p-[1px] border border-slate-700">
+                            <div id="lockProgressBar" class="bg-gradient-to-r from-amber-500 to-[#D4AF37] h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="togglePreview()" class="text-[10px] font-bold bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg transition-all">
+                                <span id="previewBtnText">디자인 미리보기</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-2">
+                    <button id="premiumDownloadBtn" onclick="downloadCardAlert('premiumCard', 'verve_30days_grand_complete_card.png')" disabled class="w-full bg-slate-800 text-slate-500 font-bold py-4 px-4 rounded-xl shadow-md border border-slate-700 transition-all text-sm flex items-center justify-center space-x-2 cursor-not-allowed">
+                        <i class="fa-solid fa-circle-check text-xs"></i>
+                        <span>피날레 마스터 카드 다운로드</span>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -236,6 +325,7 @@
         // 오운완 상태(16일)와 오단완 상태(30일) 각각 로컬스토리지 관리
         let workoutState = JSON.parse(localStorage.getItem('verve_workout_days')) || Array(16).fill(false);
         let proteinState = JSON.parse(localStorage.getItem('verve_protein_days')) || Array(30).fill(false);
+        let isPreviewActive = false; // 미리보기 토글용 플래그
         
         const weightInput = document.getElementById('weightInput');
         const protMin = document.getElementById('protMin');
@@ -246,6 +336,7 @@
         
         const instaIdInput = document.getElementById('instaId');
         const cardInstaTag = document.getElementById('cardInstaTag');
+        const premiumInstaTag = document.getElementById('premiumInstaTag');
         
         const cardWorkoutScore = document.getElementById('cardWorkoutScore');
         const cardProteinScore = document.getElementById('cardProteinScore');
@@ -266,7 +357,9 @@
         instaIdInput.addEventListener('input', (e) => {
             let val = e.target.value.trim();
             if(val && !val.startsWith('@')) val = '@' + val;
-            cardInstaTag.innerText = val || '@verve_dk';
+            const finalTag = val || '@verve_dk';
+            cardInstaTag.innerText = finalTag;
+            premiumInstaTag.innerText = finalTag;
         });
 
         // 통합 그리드 렌더링 함수
@@ -312,6 +405,65 @@
             }
             document.getElementById('proteinProgressText').innerText = `${proteinCount} / 30일 달성`;
             cardProteinScore.innerText = `${proteinCount} / 30`;
+
+            // 3. 프리미엄 카드 해금 상태 업데이트
+            updatePremiumLockStatus(workoutCount, proteinCount);
+        }
+
+        // 프리미엄 30일 카드 해금 상태 제어
+        function updatePremiumLockStatus(workoutCount, proteinCount) {
+            const totalRequired = 16 + 30; // 46포인트 만점
+            const currentPoints = workoutCount + proteinCount;
+            const completionRate = Math.round((currentPoints / totalRequired) * 100);
+
+            const lockOverlay = document.getElementById('lockOverlay');
+            const lockProgressBar = document.getElementById('lockProgressBar');
+            const unlockBadge = document.getElementById('unlockBadge');
+            const premiumDownloadBtn = document.getElementById('premiumDownloadBtn');
+
+            // 게이지 진행도 채우기
+            lockProgressBar.style.width = `${completionRate}%`;
+
+            if (workoutCount === 16 && proteinCount === 30) {
+                // 완전히 완주했을 때! (해금)
+                lockOverlay.style.display = 'none';
+                unlockBadge.className = "bg-amber-100 text-[#D4AF37] font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1 border border-[#D4AF37]/20";
+                unlockBadge.innerHTML = `<i class="fa-solid fa-crown text-[9px]"></i> Unlocked`;
+                
+                premiumDownloadBtn.disabled = false;
+                premiumDownloadBtn.className = "w-full bg-gradient-to-r from-amber-500 via-[#D4AF37] to-yellow-600 text-[#0F141C] font-extrabold py-4 px-4 rounded-xl shadow-lg shadow-[#D4AF37]/20 hover:opacity-95 transition-all text-sm flex items-center justify-center space-x-2 cursor-pointer";
+            } else {
+                // 완주하지 못했으나 미리보기가 켜진 상태가 아닐 때만 잠금 오버레이 활성화
+                if (!isPreviewActive) {
+                    lockOverlay.style.display = 'flex';
+                }
+                unlockBadge.className = "bg-slate-100 text-slate-500 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1";
+                unlockBadge.innerHTML = `<i class="fa-solid fa-lock text-[9px]"></i> Locked (${completionRate}%)`;
+                
+                premiumDownloadBtn.disabled = true;
+                premiumDownloadBtn.className = "w-full bg-slate-800 text-slate-500 font-bold py-4 px-4 rounded-xl shadow-md border border-slate-700 transition-all text-sm flex items-center justify-center space-x-2 cursor-not-allowed";
+            }
+        }
+
+        // 디자인 미리보기 활성화/비활성화 토글 기능
+        function togglePreview() {
+            const lockOverlay = document.getElementById('lockOverlay');
+            const previewBtnText = document.getElementById('previewBtnText');
+            
+            isPreviewActive = !isPreviewActive;
+
+            if (isPreviewActive) {
+                // 잠금막을 투명하게 하거나 뒤로 숨겨 카드 디자인을 완전히 확인시킴
+                lockOverlay.classList.add('opacity-0', 'pointer-events-none');
+                
+                // 미리보기 모드일 때 다운로드 버튼을 활성화시켜서 자랑할 수 있는 기회 부여
+                const premiumDownloadBtn = document.getElementById('premiumDownloadBtn');
+                premiumDownloadBtn.disabled = false;
+                premiumDownloadBtn.className = "w-full bg-gradient-to-r from-amber-500 via-[#D4AF37] to-yellow-600 text-[#0F141C] font-extrabold py-4 px-4 rounded-xl shadow-lg shadow-[#D4AF37]/20 hover:opacity-95 transition-all text-sm flex items-center justify-center space-x-2 cursor-pointer";
+                
+                // 플로팅 안내 메시지나 버튼 텍스트 변경 지원
+                alert("✦ 마스터 카드 미리보기 모드가 활성화되었습니다. 30일 도전을 마치면 최종 다운로드할 수 있습니다! 미리 공유도 가능합니다.");
+            }
         }
 
         function toggleWorkout(index) {
@@ -330,21 +482,25 @@
             if(confirm('진행 중인 대시보드 상태를 전부 초기화하겠습니까?')) {
                 workoutState = Array(16).fill(false);
                 proteinState = Array(30).fill(false);
+                isPreviewActive = false;
                 localStorage.setItem('verve_workout_days', JSON.stringify(workoutState));
                 localStorage.setItem('verve_protein_days', JSON.stringify(proteinState));
                 renderGrids();
             }
         }
 
-        function downloadCardAlert() {
-            const target = document.getElementById('storyCard');
+        // 지정 엘리먼트 캡처 및 이미지 다운로드 처리 유틸 함수
+        function downloadCardAlert(cardId, fileName) {
+            const target = document.getElementById(cardId);
+            
+            // 미리보기 모드 상태에서 원래 잠겨있어야 했던 상태라면 다시 복구 처리 안내
             html2canvas(target, {
                 scale: 3, 
                 backgroundColor: null,
                 useCORS: true
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'verve_forever_strong_card.png';
+                link.download = fileName;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             });
@@ -354,3 +510,4 @@
     </script>
 </body>
 </html>
+```eof
